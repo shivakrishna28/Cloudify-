@@ -1,0 +1,27 @@
+import React, { useState } from "react";
+import "./App.css"; // Create a CSS file or replace with your styling approach.
+
+const App = () => {
+  // This state holds the rows of the table, with each row containing an ID, Column 1 value, and Column 2 values.
+  const [rows, setRows] = useState([{ id: 1, column1: "", column2: [] }]);
+
+  // This state holds the initial static options for the single-select dropdown in Column 1.
+  const [availableOptions, setAvailableOptions] = useState([
+    "Option A",
+    "Option B",
+    "Option C",
+    "Option D",
+  ]);
+
+  // This state holds the options for the multi-select dropdown in Column 2, which can be dynamically updated.
+  const [multiSelectOptions, setMultiSelectOptions] = useState([
+    "Tag 1",
+    "Tag 2",
+    "Tag 3",
+  ]);
+
+  // This function adds a new blank row to the table with default values.
+  const handleAddRow = () => {
+    setRows([...rows, { id: rows.length + 1, column1: "", column2: [] }]);
+  };
+
